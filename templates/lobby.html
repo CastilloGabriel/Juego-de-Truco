@@ -1,0 +1,55 @@
+<html>
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <title> Lobby </title>
+  <script type="text/JavaScript">
+<!--
+function timedRefresh(timeoutPeriod) {
+setTimeout("location.reload(true);",timeoutPeriod);
+        }
+//   -->
+    </script>
+    <body onload="JavaScript:timedRefresh(5000);">
+        <div class= "lobby">
+        <b> Bienvenido al juego de Truco </b>
+        <table style="width=100%" BORDER="2">
+            <tr>
+                <th> Creador </th>
+                <th> Disponibilidad </th>
+                <th> Puntos a Jugar </th>
+                <th> Opción </th>
+                <th> Estado en Curso </th>
+            </tr><br>
+            {% for partida in tabla %}
+                <tr>
+                    <td> {{partida.creador}} </td>
+                    <td> {{partida.estado}} </td>
+                    <td> {{partida.puntos_a_jugar}} </td>
+                    {% if partida.estado == "Disponible" %}
+                        <td> <a href="/join/{{partida.gameid}}"><input type="button" value="Unirse"/></a></td>
+                        <td> Esperando mas Jugadores </td>
+                    {% elif partida.estado == "Lleno" %}
+                        <td> <input type="button" value="Partida llena" /></td>
+                        <td> 
+                            Equipo1 - {{partida.puntos_equipo1}}</br>
+                            Equipo2 - {{partida.puntos_equipo2}}
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table><br>
+        <form action="/crear/" method="post">
+            <p>Selecciona la cantidad de puntos a jugar.</p>
+            <input type="radio" checked name="puntos" value="15">Partida a 15 puntos</input></br>
+            <input type="radio" name="puntos" value="30">Partida a 30 puntos</input></br>
+            <p>Selecciona la cantidad de jugadores que habrá en la partida.</p>
+            <input type="radio" checked name="numero_de_jugadores" value=2> Jugar de a 2</input></br>
+            <input type="radio" name="numero_de_jugadores" value=4> Jugar de a 4</input></br>
+            <input type="radio" name="numero_de_jugadores" value=6> Jugar de a 6</input></br>
+            <p>Una vez seleccionado todo, haga click en el botón "Crear Partida"</p>
+            <input type="submit" value="Crear Partida" style='width:150px; height:30px'/>
+        </form>
+        <a href="/logout/"> Logout </a>
+    </div>
+    </body>
+</html>

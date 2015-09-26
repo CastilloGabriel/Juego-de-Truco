@@ -1,0 +1,110 @@
+body { /*Imagen que afecta al cuerpo de las templates*/
+    background: white url("truco_imagen.jpg") repeat;
+}
+
+
+a:link{ /*Los enlaces aparecen en negro*/
+  color:black;
+}
+
+
+a:visited{ /*Los enlaces visitados aparecen en negro*/
+  color:black;
+}
+
+
+.main { /*Clase para el template main*/
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 800px;
+  height: 179px;
+  border: none;
+  font: normal normal bold 22px/2 "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  color: rgba(5,4,4,1);
+  text-align: center;
+  text-indent: 3px;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  letter-spacing: 1px;
+  word-spacing: 10px;
+  background: rgba(255,255,255,0.7);
+  -webkit-box-shadow: 6px 3px 18px 3px rgba(9,10,10,0.86) ;
+  box-shadow: 6px 3px 18px 3px rgba(9,10,10,0.86) ;
+  text-shadow: 1px 0 1px rgba(15,14,14,1) ;
+}
+
+
+.register { /*Clase para el template register*/
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 250px;
+  height: 550px;
+  border: none;
+  font: normal normal bold 24px/1 "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  color: rgba(10,9,9,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  letter-spacing: 2px;
+  word-spacing: 10px;
+  background: rgba(255,255,255,0.64);
+  -webkit-box-shadow: 8px 5px 18px 3px rgba(10,9,9,1) ;
+  box-shadow: 8px 5px 18px 3px rgba(10,9,9,1) ;
+}
+
+
+.auth { /*Clase para el template auth*/
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 302px;
+  height: 260px;
+  border: none;
+  font: normal normal bold 24px/1 "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  color: rgba(7,7,7,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: rgba(255,255,255,0.67);
+  -webkit-box-shadow: 11px 4px 18px 3px rgba(7,7,7,1);
+  box-shadow: 11px 4px 18px 3px rgba(7,7,7,1) ;
+}
+
+
+.lobby { /*Clase para el template lobby*/
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 800px;
+  height: 1000px;
+  border: none;
+  font: normal normal bold 25px/1 "Courier New", Courier, monospace;
+  color: rgba(10,9,9,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: rgba(255,255,255,0.72);
+  -webkit-box-shadow: 9px 5px 21px 3px rgba(9,10,10,1);
+  box-shadow: 9px 5px 21px 3px rgba(9,10,10,1) ;
+}
+
+
+.partida { /*Clase para el template partida*/
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 500px;
+  height: 1000px;
+  border: none;
+  font: normal normal bold 25px/1 "Courier New", Courier, monospace;
+  color: rgba(10,9,9,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: rgba(255,255,255,0.46);
+  -webkit-box-shadow: 9px 5px 21px 3px rgba(9,10,10,1) ;
+  box-shadow: 9px 5px 21px 3px rgba(9,10,10,1) ;
+}
+

@@ -1,0 +1,19 @@
+<html>
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+  <head>
+    <title>Registro</title>
+  </head>
+  <body><br>
+    <div class ="register">
+    <b>Por favor, complete el formulario.</b>
+    {{state}}
+    <form action="/signin/" method="post">
+      {{form.as_p}}
+      <input type="submit" value="Submit" style='width:80px; height:40px' />
+      <br><br>
+      <b><a href="/"> Pagina Principal </a><b>
+    </form>
+  </div>
+  </body>
+</html>

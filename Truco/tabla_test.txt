@@ -1,0 +1,62 @@
+Que se va a testear: view register_user 
+Como se va a testear: mediante un post, registrando un usuario
+Resultado esperado: redirect a /login
+Resultado: redirect a /login
+
+=========================================
+
+Que se va a testear: view register_user 
+Como se va a testear: mediante un post, registrando un usuario con pass y confirmacion de pass diferente
+Resultado esperado: "No coinciden contrasena."
+Resultado: "No coinciden contrasena."
+
+=========================================
+
+Que se va a testear: view register_user 
+Como se va a testear: mediante un post, registrando un usuario con un email invalido
+Resultado esperado: "Asegurarse de haber completado todo."
+Resultado: "Asegurarse de haber completado todo."
+
+=========================================
+
+Que se va a testear: view login_user 
+Como se va a testear: se crea mediante setup una instancia de un user, logueandolo exitosamente 
+Resultado esperado: redirect a /lobby
+Resultado: redirect a /lobby
+
+=========================================
+
+Que se va a testear: view login_user 
+Como se va a testear: se crea mediante setup una instancia de un user, logueandolo con pass diferente
+Resultado esperado: "Tu nombre de usuario/contrasena es incorrecta."
+Resultado: "Tu nombre de usuario/contrasena es incorrecta."
+
+=========================================
+
+Que se va a testear: view crear_partida
+Como se va a testear: se crea mediante setup dos instancias diferente de un user, el usuario "a" crea la partida.
+Resultado esperado: "Esperando al otro jugador..."
+Resultado: "Esperando al otro jugador..."
+
+=========================================
+
+Que se va a testear: view crear_partida y unirse_partida
+Como se va a testear: se crea mediante setup dos instancias diferente de un user, el user "a" crea la partida, el user b se une a la misma.
+Resultado esperado para el user "a": "Esperando al otro jugador..."
+Resultado del user "a": "Esperando al otro jugador..."
+Resultado esperado para el user "b": "Te uniste a una partida"
+Resultado del user "b": "Te uniste a una partida"
+
+=========================================
+
+Que se va a testear: view muestreo_lobby
+Como se va a testear: el user "a" crea la unica partida que hay y luego se listan para obtener la cantidad de partidas y el creador.
+Resultado esperado: 1 partida creada por el user "a"
+Resultado: 1 partida creada por el user "a"
+
+
+
+
+
+
+

@@ -1,0 +1,85 @@
+<html>
+  <head>
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+  <title> Partida </title>
+  <meta http-equiv="refresh" content="5"/>
+  </head>
+    <body onload="JavaScript:timedRefresh(10000);">
+    <body onload="JavaScript:timedRefresh(10000);">
+    <div class = "partida">
+        {% if status == 0 %}
+            Esperando al otro jugador...
+        {% else %}
+            <!-- Muestreo del juego hasta el momento -->
+            {% load staticfiles %}
+            <!-- Cartas por jugar del oponente -->
+            <img src="{% static "back.jpeg" %}"/>
+            <img src="{% static "back.jpeg" %}"/>
+            <img src="{% static "back.jpeg" %}"/>
+
+            <!-- Vemos las cartas jugadas por ambos jugadores -->
+            <table style="width=100%" align="center">
+                <tr>
+                    <th> Ronda 1 </th>
+                    <th> Ronda 2 </th>
+                    <th> Ronda 3 </th>
+                </tr>
+                <tr>
+                {% for carta_1 in jugadas1 %}
+                    <td> <img src="{% static carta_1.img_name %}" /></td>
+                {% endfor %}
+                </tr>
+                <tr>
+                {% for carta_2 in jugadas2 %}
+                    <td> <img src="{% static carta_2.img_name %}" /></td>
+                {% endfor %}
+                </tr>
+            </table>
+
+            <!-- Cartas Propias que tiene el jugador en la mano -->
+            <form action="/join/{{game.id}}/" method="post"> 
+
+            {% for carta in mano %}
+                {% if not game.pausa and game.turno == player.nro_jugador %}
+                    <button name="carta" value={% cycle "0" "1" "2" %}>
+                {% endif %}
+                    <img src="{% static carta.img_name %}"/>
+                {% if not game.pausa and game.turno == player.nro_jugador %}
+                    </button>
+                {% endif %}
+            {% endfor %}
+                <br>
+                {{status}}
+                <br>
+            {% if mostrar_can %}
+                {% for can in mostrar_can %}
+                    <button name="canto" value={{can.1}} style='width:80px; height:40px'>
+                        {{can.0}}
+                    </button>
+                {% endfor %}
+                {% if can_accept %}
+                    <button name="quiero" value=1 style='width:80px; height:30px'>
+                            Quiero
+                    </button>
+                    <button name="quiero" value=0 style='width:80px; height:30px'>
+                            No Quiero
+                    </button>
+                {% endif %}
+            </form>
+            {% endif %}
+
+            <br>
+            <p> Te uniste a una partida a {{game.puntos_a_jugar}}</p>
+            <p> Tu puntaje acumulador de la partida es: {{equipo.puntaje}}</p>
+            {% if player.tid.nro_equipo == 1 %}
+                <p> Tu puntaje del ENVIDO es: {{game.cantos.tantos_e1}}</p>
+                <p> Tu puntaje del OTRO ENVIDO es: {{game.cantos.tantos_e2}}</p>
+            {% else %}
+                <p> Tu puntaje del ENVIDO es: {{game.cantos.tantos_e2}}</p>
+                <p> Tu puntaje del otro ea ENVIDO es: {{game.cantos.tantos_e1}}</p>
+            {% endif %}
+        {% endif %}
+    </div>
+    </body>
+</html>

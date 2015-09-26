@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <head>
+        <title>Log in</title>
+            <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+        <div class = "auth">
+        {{ state }}
+        <form action="/login/" method="post">
+            {% if next %}
+            <input type="hidden" name="next" value="{{ next }}" />
+            {% endif %}
+            <br>username:
+            <input type="text" name="username" value="{{ username}}" /><br>
+            password:
+            <input type="password" name="password" value="" />
+            <br>
+            <input type="submit" value="Log In" style='width:60px; height:30px' />
+            <br><br>
+            <a href="/"> Pagina Principal </a>
+        </form>
+    </div>
+    </body>
+</html>
+
